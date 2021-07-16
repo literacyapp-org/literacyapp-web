@@ -2,7 +2,6 @@ package ai.elimu.model.content;
 
 import javax.persistence.Entity;
 import ai.elimu.model.BaseEntity;
-import ai.elimu.model.content.multimedia.Audio;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -30,11 +29,7 @@ public class StoryBookParagraph extends BaseEntity {
     @OrderColumn
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Word> words;
-    
-    @Deprecated
-    @ManyToOne
-    private Audio audio;
-    
+
     public StoryBookChapter getStoryBookChapter() {
         return storyBookChapter;
     }
@@ -66,12 +61,5 @@ public class StoryBookParagraph extends BaseEntity {
     public void setWords(List<Word> words) {
         this.words = words;
     }
-    
-    public Audio getAudio() {
-        return audio;
-    }
 
-    public void setAudio(Audio audio) {
-        this.audio = audio;
-    }
 }
